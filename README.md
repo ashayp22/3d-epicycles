@@ -1,7 +1,4 @@
-# 3d-epicycles
-The 3D Etch A Sketch (with the Fourier Transform and Epicycles)
-
-![p5][1]![fourier][2]![License][3]
+# The 3D Etch A Sketch (with the Fourier Transform and Epicycles)
 
 ![](img/example.gif)
 
