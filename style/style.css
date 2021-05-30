@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+
+body { 
+    
+    margin: 0; 
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    background-color: rgb(241, 239, 239);
+
+}
+
+h1 {
+    text-decoration: underline;
+    font-size: 45px;
+}
+
+#center {
+    width: fit-content;
+    height:fit-content;
+    margin: 0px auto;
+    text-align: center;
+    align-content: center;
+}
+
+#header {
+    position: relative;
+    margin-top: 25px;
+    text-align: center;
+    height: fit-content;
+    border: 5px dotted black;
+    width: 85vw;
+    border-radius: 25px;
+}
+
+#fourier {
+    width: 85vw;
+    height: fit-content;
+    background-color: black;
+}
+
+#info {
+    position: relative;
+    margin-top: 25px;
+    text-align: center;
+    height: fit-content;
+    border: 5px dotted black;
+    width: 85vw;
+    border-radius: 25px;
+}
+
+.button {
+    background-color: #fdfd92;
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Titillium Web', sans-serif;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    border-color: #fdfd92;
+}
+
+.problem {
+    color: rgb(253, 63, 63);
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+.sources {
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+
+.solution {
+    /* color: rgb(0, 221, 66); */
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+b {
+    text-decoration: underline;
+    color: rgb(253, 63, 63);
+
+}
+
+.green {
+    color: rgb(95, 160, 124);
+}
+
+/* footer {
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(241, 239, 239);
+  color: black;
+  text-align: center;
+
+} */
