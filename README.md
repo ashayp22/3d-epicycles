@@ -2,9 +2,9 @@
 
 ![](img/example.gif)
 
-This is the code for a website I'm creating https://www.myfourierepicycles.com/.
+This is the code for https://3d-epicycles.ashayp.com/.
 
-My motivation for this website is to try and fill a gap left by other work (mentioned at the end), and allow users to upload and draw their own fourier epicycles. The current implementation is far from perfect, but I think it's a good start.
+I created this website because I wanted to extend the many Fourier Transform + Epicycle examples I saw online to 3 Dimensions. 
 
 The site has the following functionality:
 
@@ -12,33 +12,13 @@ The site has the following functionality:
 - Draw in an image and find its fourier epicycles.
 - A brief explanation of the mathematics connecting fourier series and revolving epicycles.
 
-### Important note on image selction:
-
-For fast and clear drawings upload SVGs that are less than 50kb and can be made single path. It will be evident that your SVG image cannot be made single path from the output, as the fourier transform will be applied to all paths.
-
-The code uses the [svgo library](https://github.com/svg/svgo) to compress and filter SVG files before they are displayed.
-
-I apologies if some of your uploads, that satisfying these criteria, still don't work. Unfortunately at this stage, some SVGs just require some manual tinkering of parameters. I'm working on this.
-
-### How to run locally
-
-```
-$ git clone https://github.com/trozler/myFourierEpicycles.git
-$ npm install
-$ npm run dev
-```
-
-Now open `dist/index.html` on a local web server.
-
-### Understanding the Fourier Transform
+### Sources
 
 For those curious, these resources are good starting points in understanding the fourier transform and the drawing of epicycles.
 
-[3Blue1Brown fourier series](https://www.youtube.com/watch?v=r6sGWTCMz2k) : Great, like really great explanation.
+[myFourierEpicycles](https://www.myfourierepicycles.com/) : How to do this in 2D + great math explanation.
 
-[3Blue1Brown fourier transform](https://www.youtube.com/watch?v=spUNpyF58BY) : Just as great.
+[The Coding Train](https://www.youtube.com/watch?v=MY4luNgGfms&ab_channel=TheCodingTrain) : Where I got most of my code.
 
-[An interactive introduction to the fourier transform](http://www.jezzamon.com/fourier/index.html) :
-This article really helped me a lot. Gives excellent animations with explanations.
-
-[The Coding Train](https://www.youtube.com/watch?v=MY4luNgGfms) : Gives a nice guide on how you can draw your own epicycles.
+[3Blue1Brown](https://www.youtube.com/watch?v=r6sGWTCMz2k&ab_channel=3Blue1Brown) :
+Video on the Fourier Transform and Series.
