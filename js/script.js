@@ -45,14 +45,16 @@ function onDocumentKeyDown(event) {
     } else if (keyCode == 68) { //d
         camera.position.x += changeCameraPos;
     } else if(keyCode == 82) { //r
+        //restart drawing
         cancelAnimationFrame( a );
         clearScene();
         renderer.render( scene, camera );
-        loadDrawing(currentDrawing);
+        changeDrawing(currentDrawing);
         animate();
     }
 };
 
+//removes everything from the scene
 function clearScene() {
     for( var i = scene.children.length - 1; i >= 0; i--) { 
         obj = scene.children[i];
@@ -110,10 +112,19 @@ function drawCircle(radius, x, y, z, yRotation) {
 
 }
 
-function plotShape(x, y, z) {
+//plots a shape on the screen
+function plotShape(type) {
+
+    loaded = loadDrawing(type);
+    let x = loaded.x;
+    let y = loaded.y;
+    let z = loaded.z;
+
     for(let i = 1; i < x.length; i++) {
         drawLine(x[i-1], y[i-1], z[i-1], x[i], y[i], z[i], 0xffff00)
     }
+
+    animate();
 }
 
 //creates epicycles 
@@ -209,7 +220,8 @@ function changeDrawing(type) {
     document.getElementById(type).style.borderColor = "#fdcb92";
 
     currentDrawing = type;
-    loadDrawing(currentDrawing);
+    loaded = loadDrawing(currentDrawing);
+    applyFourier(loaded.x, loaded.y, loaded.z);
     animate();
 }
 
@@ -232,7 +244,7 @@ function loadDrawing(type) {
         z.push(drawing[i].z);
     }
 
-    applyFourier(x, y, z);
+    return {x, y, z}
 }
 
 function applyFourier(x, y, z) {
@@ -266,8 +278,12 @@ function applyFourier(x, y, z) {
     line2 = drawLine(0, 0, 0, 10, 10, 0, 0xffffff)
     line3 = drawLine(0, 0, 0, 10, 10, 0, 0xffffff)
 
-    const axesHelper = new THREE.AxesHelper( 500 );
-    scene.add( axesHelper );
+    // const axesHelper = new THREE.AxesHelper( 500 );
+    // axesHelper.translateX(-300);
+    // axesHelper.translateY(300);
+    // axesHelper.translateZ(-400);
+    // scene.add( axesHelper );
 }
 
 changeDrawing(currentDrawing);
+// plotShape(currentDrawing);

@@ -104,14 +104,14 @@ function getIceCream() {
     r = 150*Math.sin(Math.PI/8);
     let height = 150*Math.cos(Math.PI/8);
 
-    for(s = 0; s <= Math.PI/2; s += 0.1) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for(s = 0; s <= Math.PI/2; s += 0.2) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), y: r * Math.cos(s) + height, z: r * Math.sin(s) * Math.sin(t)})
         }
     }
 
-    for(s = 0; s <= Math.PI; s += 0.1) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for(s = 0; s <= Math.PI; s += 0.2) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), y: r * Math.cos(s) + height + 2 * r, z: r * Math.sin(s) * Math.sin(t)})
         }
     }
@@ -157,7 +157,7 @@ function getPenguin() {
 
     for(let z = 0; z < 3; z += 1) {
         for(let i = 0; i < penguin.length; i += 1) {
-            drawing.push({x: penguin[i].x, y: -penguin[i].y, z: z*10})
+            drawing.push({x: penguin[i].x - 200, y: -penguin[i].y + 400, z: z*10})
         }
     }
 
@@ -169,7 +169,7 @@ function getLion() {
 
     for(let z = 0; z < 3; z += 1) {
         for(let i = 0; i < lion.length; i += 1) {
-            drawing.push({x: lion[i].x, y: -lion[i].y, z: z*10})
+            drawing.push({x: lion[i].x - 400, y: (-lion[i].y ) + 400, z: z*10})
         }
     }
 
@@ -182,7 +182,7 @@ function getDragon() {
 
     for(let z = 0; z < 4; z += 1) {
         for(let i = 0; i < dragon.length; i += 1) {
-            drawing.push({x: dragon[i].x, y: -dragon[i].y, z: z*10})
+            drawing.push({x: dragon[i].x - 200, y: -dragon[i].y + 400, z: z*10})
         }
     }
 
@@ -195,7 +195,7 @@ function getDog() {
 
     for(let z = 0; z < 4; z += 1) {
         for(let i = 0; i < dog.length; i += 1) {
-            drawing.push({x: dog[i].x, y: -dog[i].y, z: z*10})
+            drawing.push({x: dog[i].x - 300, y: -dog[i].y + 300, z: z*10})
         }
     }
 
