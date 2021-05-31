@@ -15,6 +15,7 @@ I created this website because I wanted to extend the Fourier Transform + Epicyc
 ### Tools
 
 - [three.js] (https://threejs.org/)
+- [MathJax] (https://www.mathjax.org/)
 
 ### Sources
 
