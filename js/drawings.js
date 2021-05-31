@@ -98,7 +98,7 @@ function getIceCream() {
     var s = Math.PI/8;
     
     for(var r = 0; r <= 150; r += 10) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), y: r * Math.cos(s), z: r * Math.sin(s) * Math.sin(t)})
         }
     }
