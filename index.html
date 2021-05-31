@@ -4,6 +4,18 @@
 		<meta charset="utf-8">
 		<title>The 3D Etch A Sketch (with the Fourier Transform and Epicycles)</title>
 		<link rel="stylesheet" href="style/style.css">
+		<script>
+			MathJax = {
+			loader: {load: ['input/asciimath', 'output/chtml', 'ui/menu']},
+			
+		asciimath: {
+			delimiters: [['$','$'], ['`','`']]
+		}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+		</script>
 		
 	</head>
 	<body>
@@ -20,8 +32,8 @@
 				<input class = "button" id = "egg" onclick = "changeDrawing('egg')" type = "button" value = "Egg 🥚">
 				<input class = "button" id = "funky" onclick = "changeDrawing('funky')" type = "button" value = "Funky 🤪">
 				<input class = "button" id = "fish" onclick = "changeDrawing('fish')" type = "button" value = "Fish 🐟">
-				<br>
 				<input class = "button" id = "torus" onclick = "changeDrawing('torus')" type = "button" value = "Torus 💍">
+				<br>
 				<input class = "button" id = "heart" onclick = "changeDrawing('heart')" type = "button" value = "Heart ❤️">
 				<input class = "button" id = "icecream" onclick = "changeDrawing('icecream')" type = "button" value = "Ice Cream 🍦">
 				<input class = "button" id = "flower" onclick = "changeDrawing('flower')" type = "button" value = "Flower 🌼">
@@ -41,12 +53,12 @@
 			<div id = "info">
 				<h1>Explanation</h1>
 				<h3><i>"There is order in chaos"</i></h3>
-				<h2 class = "problem">Can we create a <b>drawing machine</b> that takes in any <b>ordered</b> set of 3D points and draws it using epicycles (a sequence of <b>chaotic</b>, rotating circles)?</h2>
+				<h2 class = "problem">Can we create a <b>drawing machine</b> that takes in any <b>ordered</b> set of $3D$ points and draws it using epicycles (a sequence of <b>chaotic</b>, rotating circles)?</h2>
 				<h2 class = "green">To solve this, we must do the following:</h2>
 
 
 				<div class = "solution">
-					<h2>Step 1. Take our 3D points and create 3 functions from its $x$, $y$, and $z$ components.</h2>
+					<h2>Step 1. Take our $3D$ points and create $3$ functions from its $x$, $y$, and $z$ components.</h2>
 				</div>
 
 					<h2>drawing $= {(0, 0, 1), (0, 1, 2), (1, 1, 2), (1, 0, 1), ...}$</h2>
@@ -63,7 +75,7 @@
 
 					<img src="img/step3.svg" alt="" width="auto" height="200">
 				<div class = "solution">
-					<h2>Step 4. Create three epicycle systems from the output above. Each system controls the $x$, $y$, or $z$ coordinate of the points being redrawn. 
+					<h2>Step 4. Create $3$ epicycle systems from the output above. Each system controls the $x$, $y$, or $z$ coordinate of the points being redrawn. 
 						
 				</div>
 				<img src="img/step5.png" alt="" width="auto" height="300">
@@ -71,13 +83,13 @@
 				<div class = "solution">
 					<h2>Step 5. Start an animation that goes from $t = 0$ to $t = 2*pi$.
 						
-						 For each time step, we sum up all the $A * cis(f * t + phi)$, where $A$ = amplitude, $f$ = frequency, $t$ = time, and $phi$ = phase shift. We then use the real or imaginary component of the sum to create a 3D point, which is plotted.</h2>
+						 For the $3$ epicycle systems, we sum up $A * cis(f * t + phi)$, where $A$ = amplitude, $f$ = frequency, $t$ = time, $phi$ = phase shift, and $cis(theta) = cos (theta) + i sin(theta)$. We then use the real or imaginary component of the $3$ sums to create a $3D$ point, which is plotted.</h2>
 				</div>
 				<img src="img/example.gif" alt="" width="auto" height="300">
 
 				<div class = "solution">
 					<h2>Step 6.
-						As the animation progresses, we see the 3 sequences of rotating circles connect to form our original, ordered set of 3D points.
+						As the animation progresses, we see the $3D$ points connect to form our $3D$ shape.
 					</div>
 				<div class = "sources">
 					<hr>
@@ -88,7 +100,7 @@
 				<h3><a href = "https://www.youtube.com/watch?v=MY4luNgGfms&ab_channel=TheCodingTrain" target = "blank">The Coding Train</a> - Much of the code I used</h3>
 				<h3><a href = "https://www.youtube.com/watch?v=r6sGWTCMz2k&ab_channel=3Blue1Brown" target = "blank">3Blue1Brown</a> - Great video on the Fourier Series and Transform</h3>
 				
-				<h3>Please feel free to <a href = "https://github.com/ashayp22/3d-epicycles" target = "blank">check out my code</a> and <a href = "mailto:ashayp22@gmail.com" target = "blank">email me</a> if you notice anything incorrect. Thank you😄</h3>
+				<h3>Please feel free to <a href = "https://github.com/ashayp22/3d-epicycles" target = "blank">check out my code</a> and <a href = "mailto:ashayp22@gmail.com" target = "blank">email me</a> if have a new 3D shape that I can add 😄</h3>
 			</div>
 
 
@@ -103,18 +115,7 @@
 			<hr>
 			© 2021 Ashay Parikh
 		</footer>
-		<script>
-			MathJax = {
-			loader: {load: ['input/asciimath', 'output/chtml', 'ui/menu']},
-			
-		asciimath: {
-			delimiters: [['$','$'], ['`','`']]
-		}
-			};
-		</script>
-		<script type="text/javascript" id="MathJax-script" async
-		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
-		</script>
+		
 		<script src="js/penguin.js"></script>
 		<script src="js/lion.js"></script>
 		<script src="js/dragon.js"></script>
