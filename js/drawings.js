@@ -252,8 +252,32 @@ function getHeart() {
         }
     }
 
-    return drawing
+    return drawing;
     
+}
+
+//https://stemkoski.github.io/Three.js/Graphulus-Surface.html
+
+function getTorus() {
+    var drawing = []
+    let mult = 50;
+
+    let a = 3;
+    let b = 1;
+    
+    //funky shape creating with a radial function and spherical coordinates
+    for(var u = 0; u <= 2*Math.PI; u += 0.2) {
+        for(var v = 0; v <= 2*Math.PI; v += 0.2) {
+
+            let x = Math.cos(u)*(a + b*Math.cos(v))
+            let y = Math.sin(u)*(a + b*Math.cos(v))
+            let z = b*Math.sin(v);
+    
+            drawing.push({y: mult*z, z: mult*x, x: mult*y})
+        }
+    }
+
+    return drawing;
 }
 
 
@@ -285,6 +309,8 @@ function getDrawing(drawingType) {
             return getDragon() 
         case "dog":
             return getDog() 
+        case "torus":
+            return getTorus() 
         case "heart":
             return getHeart() 
         default:
