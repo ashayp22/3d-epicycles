@@ -36,8 +36,8 @@ function getSphere() {
 
     let r = 100;
     
-    for(var s = 0; s <= Math.PI; s += 0.1) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for(var s = 0; s <= Math.PI; s += 0.2) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), z: r * Math.sin(s) * Math.sin(t), y: r * Math.cos(s)})
         }
     }
@@ -51,7 +51,7 @@ function getCylinder() {
     let r = 100;
     
     for(var s = 0; s <= 150; s += 10) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.cos(t), y: s, z: r * Math.sin(t)})
         }
     }
@@ -65,7 +65,7 @@ function getCone() {
     let s = Math.PI/4;
     
     for(var r = 0; r <= 150; r += 10) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), y: r * Math.cos(s), z: r * Math.sin(s) * Math.sin(t)})
         }
     }
@@ -77,8 +77,8 @@ function getEgg() {
 
     let r = 100;
     
-    for(var s = 0; s <= Math.PI; s += 0.1) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for(var s = 0; s <= Math.PI; s += 0.2) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: 2*r * Math.sin(s) * Math.cos(t), z: 5*r * Math.sin(s) * Math.sin(t), y: 3*r * Math.cos(s)})
         }
     }
@@ -124,8 +124,8 @@ function getIceCream() {
 function getFunky() {
     var drawing = []
 
-    for(var s = 0; s <= Math.PI; s += 0.1) {
-        for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for(var s = 0; s <= Math.PI; s += 0.15) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.15) {
     
             let r = Math.cos(4*s)* Math.sin(2*t) + 2;
             r *= 100;
@@ -202,6 +202,25 @@ function getDog() {
     return drawing;
 }
 
+function getFish() {
+    let drawing = []
+
+    let mult = 100;
+
+    for(var s = 0; s <= 4; s += 0.1) {
+        for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
+    
+            let r = (0.1 + Math.abs((0.7 - s)))*(Math.sqrt(16 - Math.pow(s, 2))/5)*(1 + Math.pow(Math.E, -s));    
+            drawing.push({x: mult*s, y: mult*r * Math.cos(t), z: mult*(r / 2)*Math.sin(t)})
+        }
+    }
+
+    drawing.pop()
+
+    return drawing;
+}
+
+
 
 function getDrawing(drawingType) {
     switch (drawingType) {
@@ -215,6 +234,8 @@ function getDrawing(drawingType) {
             return getCone() 
         case "egg":
             return getEgg()
+        case "fish":
+            return getFish()
         case "funky":
             return getFunky()
         case "icecream":
