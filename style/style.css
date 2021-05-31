@@ -6,7 +6,7 @@ body {
     margin: 0; 
     font-family: 'Titillium Web', sans-serif;
     text-align: center;
-    background-color: rgb(241, 239, 239);
+    background-color: rgb(209, 220, 253);
 
 }
 
@@ -31,6 +31,7 @@ h1 {
     border: 5px dotted black;
     width: 85vw;
     border-radius: 25px;
+    background-color: rgb(255, 255, 255);
 }
 
 #fourier {
@@ -47,6 +48,7 @@ h1 {
     border: 5px dotted black;
     width: 85vw;
     border-radius: 25px;
+    background-color: rgb(255, 255, 255);
 }
 
 .button {
