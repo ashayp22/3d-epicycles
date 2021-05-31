@@ -233,6 +233,28 @@ function getFish() {
     return drawing;
 }
 
+//https://www.wolframalpha.com/input/?i=Taubin%27s+heart+surface
+//https://math.stackexchange.com/questions/3416410/parametric-equation-for-taubin-heart-surface
+function getHeart() {
+
+    var drawing = []
+    let mult = 15;
+
+    //funky shape creating with a radial function and spherical coordinates
+    for(var u = 0; u <= 2*Math.PI; u += 0.15) {
+        for(var v = 0; v <= Math.PI; v += 0.15) {
+
+            let x = Math.sin(v) * (15*Math.sin(u)-4 *Math.sin(3*u));
+            let y = 8*Math.cos(v);
+            let z = Math.sin(v)*(15*Math.cos(u)-5*Math.cos(2*u)- 2*Math.cos(3*u)-Math.cos(2*u));
+    
+            drawing.push({y: mult*z, z: mult*x, x: mult*y})
+        }
+    }
+
+    return drawing
+    
+}
 
 
 function getDrawing(drawingType) {
@@ -263,6 +285,8 @@ function getDrawing(drawingType) {
             return getDragon() 
         case "dog":
             return getDog() 
+        case "heart":
+            return getHeart() 
         default:
             return getCube() 
 
