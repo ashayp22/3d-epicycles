@@ -21,7 +21,7 @@ function getCube() {
     ]
     
     let drawing = []
-    
+    //draws many cubes that combine to form a big cube
     for(let size = 10; size <= 350; size += 10) {
         for(let i = 0; i < temp.length; i += 1) {
             drawing.push({x: temp[i].x*size, y: temp[i].y*size, z: temp[i].z*size});
@@ -36,6 +36,7 @@ function getSphere() {
 
     let r = 100;
     
+    //spherical coordinates
     for(var s = 0; s <= Math.PI; s += 0.2) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), z: r * Math.sin(s) * Math.sin(t), y: r * Math.cos(s)})
@@ -50,6 +51,7 @@ function getCylinder() {
 
     let r = 100;
     
+    //cylindrical coordinates, except z and y are flipped since camera orientation is different
     for(var s = 0; s <= 150; s += 10) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.cos(t), y: s, z: r * Math.sin(t)})
@@ -64,6 +66,7 @@ function getCone() {
 
     let s = Math.PI/4;
     
+    //spherical coordinates, but limiting s instead of r
     for(var r = 0; r <= 150; r += 10) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: r * Math.sin(s) * Math.cos(t), y: r * Math.cos(s), z: r * Math.sin(s) * Math.sin(t)})
@@ -77,6 +80,7 @@ function getEgg() {
 
     let r = 100;
     
+    //ellipsoid
     for(var s = 0; s <= Math.PI; s += 0.2) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
             drawing.push({x: 2*r * Math.sin(s) * Math.cos(t), z: 5*r * Math.sin(s) * Math.sin(t), y: 3*r * Math.cos(s)})
@@ -124,6 +128,7 @@ function getIceCream() {
 function getFunky() {
     var drawing = []
 
+    //funky shape creating with a radial function and spherical coordinates
     for(var s = 0; s <= Math.PI; s += 0.15) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.15) {
     
@@ -140,6 +145,7 @@ function getFunky() {
 function getFlower() {
     var drawing = []
 
+    //got from Calc 3 Math 241 @ UIUC
     for(var s = 0; s <= Math.PI/2; s += 0.1) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.1) {
     
@@ -155,6 +161,7 @@ function getFlower() {
 function getPenguin() {
     let drawing = []
 
+    //takes a 2D picture and draws it multiple times
     for(let z = 0; z < 3; z += 1) {
         for(let i = 0; i < penguin.length; i += 1) {
             drawing.push({x: penguin[i].x - 200, y: -penguin[i].y + 400, z: z*10})
@@ -167,6 +174,7 @@ function getPenguin() {
 function getLion() {
     let drawing = []
 
+    //takes a 2D picture and draws it multiple times
     for(let z = 0; z < 3; z += 1) {
         for(let i = 0; i < lion.length; i += 1) {
             drawing.push({x: lion[i].x - 400, y: (-lion[i].y ) + 400, z: z*10})
@@ -180,6 +188,7 @@ function getLion() {
 function getDragon() {
     let drawing = []
 
+    //takes a 2D picture and draws it multiple times
     for(let z = 0; z < 4; z += 1) {
         for(let i = 0; i < dragon.length; i += 1) {
             drawing.push({x: dragon[i].x - 200, y: -dragon[i].y + 400, z: z*10})
@@ -193,6 +202,7 @@ function getDragon() {
 function getDog() {
     let drawing = []
 
+    //takes a 2D picture and draws it multiple times
     for(let z = 0; z < 4; z += 1) {
         for(let i = 0; i < dog.length; i += 1) {
             drawing.push({x: dog[i].x - 300, y: -dog[i].y + 300, z: z*10})
@@ -207,6 +217,8 @@ function getFish() {
 
     let mult = 100;
 
+
+    //Creating an ellipse with a radial function for the height and 2 axis
     for(var s = 0; s <= 4; s += 0.1) {
         for(var t = 0; t <= 2 * Math.PI; t += 0.2) {
     
@@ -215,6 +227,7 @@ function getFish() {
         }
     }
 
+    //remove the last one to prevent a line being drawn
     drawing.pop()
 
     return drawing;

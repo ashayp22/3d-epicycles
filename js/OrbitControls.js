@@ -5,6 +5,8 @@
  * @author WestLangley / http://github.com/WestLangley
  */
 
+//Used for zooming in and out
+
  THREE.OrbitControls = function ( object, domElement ) {
 
 	this.object = object;

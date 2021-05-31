@@ -1,3 +1,5 @@
+//Penguin 2D (a bit off centered, which is accounted for in drawings.js)
+
 let penguin = [{x: 231.28138325382258, y: 142.31370868306607
 },{x: 227.6242001953125, y: 145.23743749999997
 },{x: 224.47665921640396, y: 145.60497498559948

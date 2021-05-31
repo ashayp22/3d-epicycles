@@ -1,3 +1,5 @@
+//2D points for the dragon - got points using https://github.com/Shinao/PathToPoints
+
 let dragon = [
     {x: 67.31172412443162, y: 53.15545872926712
     },{x: 70.45956593252998, y: 45.81030582323391

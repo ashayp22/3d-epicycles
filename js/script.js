@@ -30,12 +30,14 @@ camera.position.x = -1300;
 //allow you to zoom in and out, move camera - //http://stemkoski.github.io/Three.js/Outline.html
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
-
+//how much to move when doing WASD
 const changeCameraPos = 10;
 
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
+
+    //moving camera around
     if (keyCode == 87) { //w
         camera.translateZ(-changeCameraPos)
     } else if (keyCode == 83) { //s
@@ -115,11 +117,12 @@ function drawCircle(radius, x, y, z, yRotation) {
 //plots a shape on the screen
 function plotShape(type) {
 
-    loaded = loadDrawing(type);
+    loaded = loadDrawing(type); //the array of points
     let x = loaded.x;
     let y = loaded.y;
     let z = loaded.z;
 
+    //draw a line connecting adjacent points in loaded
     for(let i = 1; i < x.length; i++) {
         drawLine(x[i-1], y[i-1], z[i-1], x[i], y[i], z[i], 0xffff00)
     }
@@ -147,7 +150,7 @@ function epiCycles(x, y, rotation, fourier, circles, isZ) {
 
         //draws circle
         if(isZ) {
-            circles[i].position.set(-300, prevy, prevx)
+            circles[i].position.set(-300, prevy, prevx) //for Z fourier transform, the x coordinate becomes the z coordinate
         } else {
             circles[i].position.set(prevx, prevy, 0)
         }
@@ -158,16 +161,16 @@ function epiCycles(x, y, rotation, fourier, circles, isZ) {
     return {x: x, y: y};
 }
 
-function drawAxis() {
-    
-}
 
 function draw3D() {
+    //draw until we have reached the beginning
     if(time <= Math.PI*2) {
         //need two rotating epicycle systems. One controls x and the other controls the y.
         let vectorX = epiCycles(-300, -200, 0, fourierX, xCircles, false);
         let vectorY = epiCycles(200, 300, Math.PI/2, fourierY, yCircles, false);
         let vectorZ = epiCycles(-400, -200, 0, fourierZ, zCircles, true);
+
+        //create the new point from the 3 epicycle systems
         let vectorCombined = {x: vectorX.x, y: vectorY.y, z: vectorZ.x}
 
         //push to front of wave array
@@ -184,6 +187,7 @@ function draw3D() {
             drawLine(points[end-1].x, points[end-1].y, points[end-1].z, points[end].x, points[end].y, points[end].z, 0xffff00)
         }
 
+        //every time step, we move onto the next point. Increasing or decreasing this value messes up the 3D drawing.
         const dt = Math.PI*2 / fourierY.length;
         //increase time
         time += dt;
@@ -193,6 +197,7 @@ function draw3D() {
 const animate = function () {
     a = requestAnimationFrame( animate );
 
+    //one time step fror drawing the shape
     draw3D();
     
     controls.update();
@@ -206,10 +211,13 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min)) + 1;
 }
 
+//changes the current object being drawn
 function changeDrawing(type) {
+    //clear everything
     cancelAnimationFrame( a );
     clearScene();
 
+    //update the website to show the new object being drawn
     let buttons = document.getElementsByClassName("button");
     for(let i = 0; i < buttons.length; i++) {
         buttons[i].style.backgroundColor = "#fdfd92";
@@ -219,9 +227,16 @@ function changeDrawing(type) {
     document.getElementById(type).style.backgroundColor = "#fdcb92"
     document.getElementById(type).style.borderColor = "#fdcb92";
 
+    //set the current drawing
     currentDrawing = type;
+    
+    //load the points for this drawing
     loaded = loadDrawing(currentDrawing);
+
+    //apply the fourier transform
     applyFourier(loaded.x, loaded.y, loaded.z);
+
+    //start animation
     animate();
 }
 
@@ -232,12 +247,14 @@ function loadDrawing(type) {
     points = []; //the points of the 3D object
     time = 0; //time
 
+    //get the drawing 
     let drawing = getDrawing(type);
 
     var x = []; //x coordinates for the points
     var y = []; //y coordinates for the points
     var z = []; //z coordinates for the points
 
+    //split up into components
     for(let i = 0; i < drawing.length; i += skip) {
         x.push(drawing[i].x);
         y.push(drawing[i].y); //since processing is weird and uses wierd numberline
@@ -271,13 +288,15 @@ function applyFourier(x, y, z) {
     }
 
     for(let i = 0; i < fourierZ.length; i++) {
-        zCircles.push(drawCircle(fourierZ[i].amplitude, 0, 0, 0, Math.PI / 2))
+        zCircles.push(drawCircle(fourierZ[i].amplitude, 0, 0, 0, Math.PI / 2)) //The z epicycles are rotated 90 degrees
     }
 
+    //lines connecting the epicycles to the current point being drawn
     line1 = drawLine(0, 0, 0, 10, 10, 0, 0xffffff)
     line2 = drawLine(0, 0, 0, 10, 10, 0, 0xffffff)
     line3 = drawLine(0, 0, 0, 10, 10, 0, 0xffffff)
 
+    //Plot a 3D axis for debugging
     // const axesHelper = new THREE.AxesHelper( 500 );
     // axesHelper.translateX(-300);
     // axesHelper.translateY(300);

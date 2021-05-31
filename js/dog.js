@@ -1,3 +1,5 @@
+//2D points for the dog - got points using https://github.com/Shinao/PathToPoints
+
 let dog = [
     {x: 272.1165671282601, y: 144.53990667451515
     },{x: 277.1610485747921, y: 138.34177021912836
