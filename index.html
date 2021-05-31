@@ -37,7 +37,7 @@
 
 			<div id = "info">
 				<h1>Explanation</h1>
-				<h2 class = "problem">Can we create a <b>drawing machine</b> that takes in any set of 3D points and draw it using epicycles (a sequence of rotating circles)?</h2>
+				<h2 class = "problem">Can we create a <b>drawing machine</b> that takes in any set of 3D points and draws it using epicycles (a sequence of rotating circles)?</h2>
 				<h2 class = "green">To solve this, we can do the following:</h2>
 
 
@@ -50,7 +50,7 @@
 					<h2>$y = {0, 1, 1, 0...}$</h2>
 					<h2>$z = {1, 2, 2, 1...}$</h2>
 				<div class = "solution">
-					<h2>Step 2. Apply the <a href = "https://en.wikipedia.org/wiki/Fourier_transform" target = "blank"><b>Fourier Transfor</b></a> to each function. This will allow us to represent each function as a sum of revolving circles and vectors. We will use the <a href = "https://en.wikipedia.org/wiki/Discrete_Fourier_transform" target = "blank"><b>discrete</b></a> version of the transform because computers cannot sum up an infinite number of values.</h2>
+					<h2>Step 2. Apply the <a href = "https://en.wikipedia.org/wiki/Fourier_transform" target = "blank"><b>Fourier Transform</b></a> to each function. This will allow us to represent each function as a sum of revolving circles and vectors. We will use the <a href = "https://en.wikipedia.org/wiki/Discrete_Fourier_transform" target = "blank"><b>discrete</b></a> version of the transform because computers cannot sum up an infinite number of values.</h2>
 				</div>
 					<img src="img/step2.svg" alt="" width="auto" height="150">
 				<div class = "solution">
@@ -62,20 +62,21 @@
 					<h2>Step 4. Create three epicycle systems from the output above. Each system controls the $x$, $y$, or $z$ coordinate of the points being redrawn. 
 						
 				</div>
+				<img src="img/step5.png" alt="" width="auto" height="300">
 
 				<div class = "solution">
 					<h2>Step 5. Start an animation that goes from $t = 0$ to $t = 2*pi$.
 						
 						 For each time step, we sum up all the $A * cis(f * t + phi)$, where $A$ = amplitude, $f$ = frequency, $t$ = time, and $phi$ = phase shift. We then use the real or imaginary component of the sum to update the coordinate. Visually, we see this as a bunch of rotating circles.</h2>
 				</div>
-				<img src="img/step5.png" alt="" width="auto" height="300">
+				<img src="img/example.gif" alt="" width="auto" height="300">
 
 
 
 				<div class = "sources">
 					<hr>
 
-				<h2 > My version extends the Discrete Fourier Transform + Epicycle concept to 3D drawings, which requires one more epicycle for the z-coordinate. The sources below do a much better job explaining what is going on:</h2>
+				<h2 > My version extends Fourier Epicycles (which you may have seen in YouTube videos, social media posts, and STEM websites) to 3D space. I solved this problem by adding one more epicycle that accounts for the z-coordinates. The sources below do a much better job explaining what is going on:</h2>
 				<h3><a href = "https://www.myfourierepicycles.com/" target = "blank">myFourierEpicycles</a> - Amazing visualization and math explanation</h3>
 				<h3><a href = "https://www.youtube.com/watch?v=MY4luNgGfms&ab_channel=TheCodingTrain" target = "blank">The Coding Train</a> - Much of the code I used</h3>
 				<h3><a href = "https://www.youtube.com/watch?v=r6sGWTCMz2k&ab_channel=3Blue1Brown" target = "blank">3Blue1Brown</a> - Video on what's going on</h3>
