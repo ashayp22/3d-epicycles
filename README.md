@@ -2,9 +2,7 @@
 
 ![](img/example.gif)
 
-This is the code for https://3d-epicycles.ashayp.com/.
-
-I created this website because I wanted to extend the many Fourier Transform + Epicycle examples I saw online to 3 Dimensions. 
+This is the code for https://3d-epicycles.ashayp.com/. I created this website because I wanted to extend the Fourier Transform + Epicycle examples I saw online to 3 Dimensions. Now, you can draw any 3D object using a bunch of rotating circles, from simple objects like cubes to complex objects like ice cream cones!
 
 The site has the following functionality:
 
