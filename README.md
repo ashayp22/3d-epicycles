@@ -4,7 +4,7 @@
 
 This is the code for https://3d-epicycles.ashayp.com/. 
 
-I created this website because I wanted to extend the [Fourier Epicycle examples] (https://www.myfourierepicycles.com/) that I saw online to **3 Dimensions.** Now, you can draw any 3D object using a bunch of rotating circles in a matter of seconds!
+I created this website because I wanted to extend the [Fourier Epicycle examples](https://www.myfourierepicycles.com/) that I saw online to **3 Dimensions.** Now, you can draw any 3D object using a bunch of rotating circles in a matter of seconds!
 
 ### Functionality
 
@@ -14,8 +14,8 @@ I created this website because I wanted to extend the [Fourier Epicycle examples
 
 ### Tools
 
-- [three.js] (https://threejs.org/)
-- [MathJax] (https://www.mathjax.org/)
+- [three.js](https://threejs.org/) - Used for the 3D animations
+- [MathJax](https://www.mathjax.org/) - Used for math formatting in the explanation
 
 ### Sources
 
