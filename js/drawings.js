@@ -280,6 +280,29 @@ function getTorus() {
     return drawing;
 }
 
+function getWeed() {
+    var drawing = []
+
+    let r = 125;
+    
+    //ellipsoid
+    for(var s = 0; s <= 16; s += 2) {
+        for(var t = -Math.PI; t <= Math.PI; t += 0.2) {
+
+            let radial = ((1+.9*Math.cos(8*t))*(1+ .1*Math.cos(24*t))*(.9 + .05*Math.cos(200*t))*(1 + Math.sin(t)));
+
+            let x = r * radial * Math.cos(t);
+            let y = r * radial * Math.sin(t);
+            let z = s;
+
+            drawing.push({x: x, y: y, z: z})
+        }
+    }
+
+    return drawing; 
+}
+
+
 
 function getDrawing(drawingType) {
     switch (drawingType) {
@@ -312,7 +335,9 @@ function getDrawing(drawingType) {
         case "torus":
             return getTorus() 
         case "heart":
-            return getHeart() 
+            return getHeart()
+        case "weed":
+            return getWeed() 
         default:
             return getCube() 
 
